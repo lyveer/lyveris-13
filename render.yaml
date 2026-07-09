@@ -1,5 +1,5 @@
 services:
   - type: web
-    name: iclal-13-love-site
+    name: 13-love
     runtime: static
     staticPublishPath: .

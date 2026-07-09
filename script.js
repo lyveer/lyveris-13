@@ -1,5 +1,5 @@
-// Target Anniversary Date: 13.04.2025
-const anniversaryDate = new Date("2025-04-13T00:00:00");
+// Target Anniversary Date: 13.03.2025
+const anniversaryDate = new Date("2025-03-13T00:00:00");
 
 // Timer Update Function
 function updateTimer() {
@@ -20,8 +20,10 @@ function updateTimer() {
 }
 
 // Initial Timer Trigger and Setup Interval
-updateTimer();
-setInterval(updateTimer, 1000);
+if (document.getElementById("days")) {
+    updateTimer();
+    setInterval(updateTimer, 1000);
+}
 
 // Love Letter Interactive Setup
 const letterOverlay = document.getElementById("letterOverlay");
@@ -31,7 +33,7 @@ const typewriterTextContainer = document.getElementById("typewriterText");
 
 const letterMessage = `Sevgilim İclal,
 
-Bugün, hayatımın en güzel kararını verdiğim, seninle bir araya geldiğimiz o özel günden beri geçen her anı kutluyoruz. 13 Nisan 2025...
+Bugün, hayatımın en güzel kararını verdiğim, seninle bir araya geldiğimiz o özel günden beri geçen her anı kutluyoruz. 13 Mart 2025...
 
 O gün, zamanın bizim için yeniden akmaya başladığı, hayatımın en parlak yıldızının gökyüzünde belirdiği gündü. Sen benim hayatıma girdiğinden beri her şey daha anlamlı, her an daha değerli. Senin gülüşün, bakışın ve varlığın benim bu dünyadaki en büyük sığınağım.
 
@@ -61,30 +63,38 @@ function startTypewriter() {
             
             // Auto scroll container down if text overflows
             const parchment = document.querySelector(".parchment-letter");
-            parchment.scrollTop = parchment.scrollHeight;
+            if (parchment) {
+                parchment.scrollTop = parchment.scrollHeight;
+            }
         } else {
             clearInterval(typewriterInterval);
         }
     }, 45); // Adjust typing speed here (ms per character)
 }
 
-openLetterBtn.addEventListener("click", () => {
-    letterOverlay.classList.remove("hidden");
-    startTypewriter();
-});
+if (openLetterBtn) {
+    openLetterBtn.addEventListener("click", () => {
+        letterOverlay.classList.remove("hidden");
+        startTypewriter();
+    });
+}
 
-closeLetterBtn.addEventListener("click", () => {
-    letterOverlay.classList.add("hidden");
-    clearInterval(typewriterInterval);
-});
-
-// Close overlay on clicking outside the parchment paper
-letterOverlay.addEventListener("click", (e) => {
-    if (e.target === letterOverlay) {
+if (closeLetterBtn) {
+    closeLetterBtn.addEventListener("click", () => {
         letterOverlay.classList.add("hidden");
         clearInterval(typewriterInterval);
-    }
-});
+    });
+}
+
+if (letterOverlay) {
+    // Close overlay on clicking outside the parchment paper
+    letterOverlay.addEventListener("click", (e) => {
+        if (e.target === letterOverlay) {
+            letterOverlay.classList.add("hidden");
+            clearInterval(typewriterInterval);
+        }
+    });
+}
 
 
 // Particle Canvas Animation (Hearts and Stars)

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13-love | Fotoğraflarımız</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Outfit:wght@200;400;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        
+        <!-- Navigation Bar -->
+        <nav class="nav-bar glass-panel">
+            <a href="index.html" class="nav-link"><i class="fa-solid fa-heart"></i> Ana Sayfa</a>
+            <a href="gallery.html" class="nav-link active"><i class="fa-solid fa-images"></i> Fotoğraflarımız</a>
+        </nav>
+
+        <!-- Header Section -->
+        <header class="hero-section">
+            <div class="logo-container">
+                <span class="logo-num">13</span>
+            </div>
+            <h1 class="couple-title">Aşkımızın Galerisi</h1>
+            <p class="subtitle">Birlikte biriktirdiğimiz en güzel anılar.</p>
+        </header>
+
+        <!-- Photo Gallery Grid -->
+        <section class="gallery-section glass-panel">
+            <h2 class="section-title"><i class="fa-regular fa-images"></i> Anılar Duvarı</h2>
+            <p class="gallery-info-text">Buraya kendi fotoğraflarınızı ekleyebilirsiniz. assets/ klasöründeki fotoğrafları güncellediğinizde otomatik olarak burada görünecektir.</p>
+            
+            <div class="gallery-grid">
+                <!-- Photo 1 (Main portrait) -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper">
+                        <img src="assets/background.jpg" alt="İclal & Lyveris Portre" class="card-img">
+                    </div>
+                    <div class="card-caption">
+                        <h3>Sonsuza Dek Göz Göze</h3>
+                        <p>Kaderimizin birleştiği o ilk gün...</p>
+                    </div>
+                </div>
+
+                <!-- Placeholder Photo 2 -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper placeholder-wrapper">
+                        <div class="placeholder-icon"><i class="fa-regular fa-image"></i></div>
+                        <img src="assets/foto1.jpg" alt="Fotoğraf Ekle" class="card-img" onerror="this.style.display='none';">
+                    </div>
+                    <div class="card-caption">
+                        <h3>Fotoğraf Ekle (foto1.jpg)</h3>
+                        <p>Kendi görselinizi 'foto1.jpg' ismiyle assets/ klasörüne atın.</p>
+                    </div>
+                </div>
+
+                <!-- Placeholder Photo 3 -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper placeholder-wrapper">
+                        <div class="placeholder-icon"><i class="fa-regular fa-image"></i></div>
+                        <img src="assets/foto2.jpg" alt="Fotoğraf Ekle" class="card-img" onerror="this.style.display='none';">
+                    </div>
+                    <div class="card-caption">
+                        <h3>Fotoğraf Ekle (foto2.jpg)</h3>
+                        <p>Kendi görselinizi 'foto2.jpg' ismiyle assets/ klasörüne atın.</p>
+                    </div>
+                </div>
+
+                <!-- Placeholder Photo 4 -->
+                <div class="gallery-card">
+                    <div class="card-img-wrapper placeholder-wrapper">
+                        <div class="placeholder-icon"><i class="fa-regular fa-image"></i></div>
+                        <img src="assets/foto3.jpg" alt="Fotoğraf Ekle" class="card-img" onerror="this.style.display='none';">
+                    </div>
+                    <div class="card-caption">
+                        <h3>Fotoğraf Ekle (foto3.jpg)</h3>
+                        <p>Kendi görselinizi 'foto3.jpg' ismiyle assets/ klasörüne atın.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-section">
+            <p>13.03.2025 • Aşkla, İclal İçin.</p>
+        </footer>
+    </main>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
