@@ -30,9 +30,21 @@
     <!-- Background Particle Canvas -->
     <canvas id="particleCanvas"></canvas>
 
-    <!-- Hidden Background Music Player (loads after entrance click) -->
+    <!-- Custom Audio Player (slides in after entrance click) -->
     <div id="bgMusicContainer" class="bg-music-container">
-        <div id="spotify-player-placeholder"></div>
+        <audio id="bgAudio" src="assets/golden_brown.mp3" loop></audio>
+        <div class="custom-player">
+            <div class="player-disk">
+                <i class="fa-solid fa-compact-disc disc-icon"></i>
+            </div>
+            <div class="player-info">
+                <span class="player-title">Golden Brown</span>
+                <span class="player-artist">The Stranglers</span>
+            </div>
+            <button id="playerPlayBtn" class="player-control-btn">
+                <i class="fa-solid fa-pause"></i>
+            </button>
+        </div>
     </div>
 
     <!-- Main Container -->

@@ -204,6 +204,88 @@ a, button, .nav-link, .letter-btn, .entrance-btn, .close-letter-btn {
     }
 }
 
+/* Custom Player UI */
+.custom-player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 12px 18px;
+    gap: 12px;
+}
+
+.player-disk {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 10px rgba(223, 186, 107, 0.2);
+}
+
+.disc-icon {
+    font-size: 1.6rem;
+    color: var(--gold);
+}
+
+.player-disk.playing {
+    animation: rotateDisk 4s linear infinite;
+}
+
+@keyframes rotateDisk {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.player-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gold-bright);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-artist {
+    font-size: 0.75rem;
+    color: var(--ivory-muted);
+    font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-control-btn {
+    background: transparent;
+    border: 1px solid var(--gold);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    transition: all 0.3s ease;
+}
+
+.player-control-btn:hover {
+    background: var(--gold);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px rgba(223, 186, 107, 0.4);
+    transform: scale(1.08);
+}
+
 /* Background Canvas for Particles */
 #particleCanvas {
     position: fixed;

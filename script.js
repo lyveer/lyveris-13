@@ -6,60 +6,31 @@
 const anniversaryDate = new Date("2025-03-13T00:00:00");
 
 // ============================================
-// Entrance Overlay & Background Music (Spotify IFrame API)
+// Entrance Overlay & Background Music (Custom HTML5 Player)
 // ============================================
 const entranceOverlay = document.getElementById("entranceOverlay");
 const enterSiteBtn = document.getElementById("enterSiteBtn");
 const bgMusicContainer = document.getElementById("bgMusicContainer");
-
-let embedController = null;
-let hasInteracted = false;
-
-// Define callback first to prevent race condition when API script loads
-window.onSpotifyIframeApiReady = (IFrameAPI) => {
-    const element = document.getElementById("spotify-player-placeholder");
-    if (!element) return;
-    
-    const options = {
-        uri: 'spotify:track:5GpfyJrKHJI36jDKtQiyGN',
-        width: '100%',
-        height: '80',
-        theme: '0'
-    };
-    
-    IFrameAPI.createController(element, options, (controller) => {
-        embedController = controller;
-        // If the user already clicked the enter button before API was ready, start playback
-        if (hasInteracted) {
-            bgMusicContainer.classList.add("visible");
-            setTimeout(() => {
-                embedController.play();
-            }, 300);
-        }
-    });
-};
-
-// Dynamically load the Spotify Iframe API script after callback definition
-if (bgMusicContainer) {
-    const script = document.createElement('script');
-    script.src = "https://open.spotify.com/iframe-api/v1";
-    script.async = true;
-    document.body.appendChild(script);
-}
+const bgAudio = document.getElementById("bgAudio");
+const playerPlayBtn = document.getElementById("playerPlayBtn");
+const playerDisk = document.querySelector(".player-disk");
 
 if (enterSiteBtn) {
     enterSiteBtn.addEventListener("click", () => {
-        hasInteracted = true;
         // Fade out entrance
         entranceOverlay.classList.add("fade-out");
 
-        // Slide in music player and trigger playback if controller is ready
+        // Slide in custom player and start playback
         if (bgMusicContainer) {
             bgMusicContainer.classList.add("visible");
-            if (embedController) {
-                setTimeout(() => {
-                    embedController.play();
-                }, 300);
+            if (bgAudio) {
+                // Lower volume to prevent it from being too loud (as requested)
+                bgAudio.volume = 0.35;
+                bgAudio.play().then(() => {
+                    if (playerDisk) playerDisk.classList.add("playing");
+                }).catch(err => {
+                    console.log("Autoplay blocked or audio load error:", err);
+                });
             }
         }
 
@@ -67,6 +38,20 @@ if (enterSiteBtn) {
         setTimeout(() => {
             entranceOverlay.style.display = 'none';
         }, 900);
+    });
+}
+
+if (playerPlayBtn && bgAudio) {
+    playerPlayBtn.addEventListener("click", () => {
+        if (bgAudio.paused) {
+            bgAudio.play();
+            playerPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+            if (playerDisk) playerDisk.classList.add("playing");
+        } else {
+            bgAudio.pause();
+            playerPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+            if (playerDisk) playerDisk.classList.remove("playing");
+        }
     });
 }
 
