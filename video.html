@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13 | Güzel Anılar</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Outfit:wght@200;400;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="no-entrance">
+    <!-- Background Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        
+        <!-- Navigation Bar -->
+        <nav class="nav-bar glass-panel">
+            <a href="index.html" class="nav-link"><i class="fa-solid fa-heart"></i> Ana Sayfa</a>
+            <a href="gallery.html" class="nav-link"><i class="fa-solid fa-images"></i> Fotoğraflarımız</a>
+            <a href="video.html" class="nav-link active"><i class="fa-solid fa-film"></i> Anılar</a>
+        </nav>
+
+        <!-- Header Section -->
+        <header class="hero-section">
+            <div class="logo-container">
+                <span class="logo-num">13</span>
+            </div>
+            <h1 class="couple-title">Güzel Anılar ile</h1>
+            <p class="subtitle">Birlikte yaşadığımız, kalbimize kazınan anlar.</p>
+            <div class="hero-divider">
+                <span class="divider-ornament">❦</span>
+            </div>
+        </header>
+
+        <!-- Video Section -->
+        <section class="video-section glass-panel">
+            <h2 class="section-title"><i class="fa-solid fa-clapperboard"></i> Bizim Hikayemiz</h2>
+            <div class="video-container">
+                <video class="video-player" controls playsinline preload="metadata">
+                    <source src="assets/video.mp4" type="video/mp4">
+                    Tarayıcınız video oynatmayı desteklemiyor.
+                </video>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-section">
+            <p>13.03.2025 • Aşkla, Lyveris İçin.</p>
+        </footer>
+    </main>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

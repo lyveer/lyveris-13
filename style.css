@@ -588,6 +588,27 @@ a, button, .nav-link, .letter-btn, .entrance-btn, .close-letter-btn {
 }
 
 /* ============================================
+   Video Section
+   ============================================ */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(223, 186, 107, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.video-player {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+/* ============================================
    Letter Overlay (Parchment Modal)
    ============================================ */
 .letter-overlay {
